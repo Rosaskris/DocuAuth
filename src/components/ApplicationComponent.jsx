@@ -1,6 +1,7 @@
 import{ useState } from 'react';
 import axios from 'axios';
 import ImageUploadComponent from './ImageUploadComponent';
+import { Link } from 'react-router-dom';
 const API_KEY= import.meta.env.VITE_API_KEY;
 import { Button, FormControl, InputLabel, MenuItem, Select, Typography, Grid } from '@mui/material';
 
@@ -98,6 +99,11 @@ const ApplicationComponent = () => {
         </div>
       )}
       {error && <Typography color="error">An error occurred: {error}</Typography>}
+      <Link to="/application-status">
+      <Button variant="contained" color="primary" style={{fontSize:'12px', margin:'15px'}}>
+        View Application Status
+      </Button>
+      </Link>
     </div>
   );
 };

@@ -47,7 +47,7 @@ const ApplicationStatus = () => {
               />
             </div>
             <Button type="submit" variant="contained" color="primary">
-              Submit
+              Check Status 🔍
             </Button>
           </form>
     

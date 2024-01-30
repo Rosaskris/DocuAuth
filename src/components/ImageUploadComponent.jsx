@@ -1,6 +1,5 @@
 import{ useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { Button, Typography, Paper } from '@mui/material';
 
 
@@ -59,6 +58,7 @@ const ImageUploadComponent = ({frontSide, backSide, id}) => {
     };
   
     return (
+      <>
       <Paper style={{ padding: '24px', maxWidth: '400px', margin: 'auto', marginTop: '32px' }}>
         <Typography variant="h5" margin={2}>Upload your Document pictures</Typography>
         <label>
@@ -122,14 +122,12 @@ const ImageUploadComponent = ({frontSide, backSide, id}) => {
             <Typography>
               Check your validation status in a few minutes with your ID: {application_id}
             </Typography>
-            <Link to="/application-status">
-              <Button variant="contained" color="primary" style={{fontSize:'12px', margin:'15px'}}>
-                View Application Status
-              </Button>
-            </Link>
           </div>
         )}
+
       </Paper>
+
+      </>
     );
 };
 
