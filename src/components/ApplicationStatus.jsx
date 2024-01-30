@@ -27,7 +27,6 @@ const ApplicationStatus = () => {
             const response= await axios.get(`https://api.validations.truora.com/v1/validations/${id}`, config)
             setStatus(response.data)
         } catch (error) {
-            console.log(error)
             setError(error.message)
         }
     }
@@ -61,7 +60,6 @@ const ApplicationStatus = () => {
               {status.declined_reason && (
                 <Typography variant="h6" margin={2}>Declined reason: {status.declined_reason.split('_').join(' ')}</Typography>
               )}
-              {/* {status.details && <p>Document details: {status.details.document_details}</p>} */}
               {status.creation_date&& <Typography variant="h6" margin={2}>Creation date: {status.creation_date}</Typography>}
               {status.details && <Typography variant="h6" margin={2}>Document number: {status.details.document_details.document_number}</Typography>}
               {status.details&& <Typography variant="h6" margin={2}>First Name: {status.details.document_details.name}</Typography>}

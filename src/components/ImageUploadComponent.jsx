@@ -30,13 +30,10 @@ const ImageUploadComponent = ({frontSide, backSide, id}) => {
     formData.append('image2', image2);  
     
     try {
-      // console.log(image1)
         await axios.post('http://localhost:5000/uploadImages', formData ,config);
-        
         setValidationResults("completed")
   
       } catch (error) {
-
         setError(error)
       }
     };
