@@ -7,8 +7,8 @@ import { Button, FormControl, InputLabel, MenuItem, Select, Typography, Grid } f
 
 const ApplicationComponent = () => {
   const type='document-validation';
-  const [country, setCountry] = useState('CO');
-  const [document_type, setDocument_type]=useState('national-id');
+  const [country, setCountry] = useState('');
+  const [document_type, setDocument_type]=useState('');
   const user_authorized=true
   const [error, setError]=useState(null)
   const [apiResponse, setApiResponse] = useState(null);
@@ -36,7 +36,7 @@ const ApplicationComponent = () => {
 
       setApiResponse(response.data);
     } catch (error) {
-      setError(error);
+      setError(error.message);
     }
   };
 
@@ -92,13 +92,13 @@ const ApplicationComponent = () => {
         </Grid>
       </form>
 
-      {apiResponse && (
+      {apiResponse ? (
         <div>
           <Typography variant="h5" margin={4}>Application Created!</Typography>
           <ImageUploadComponent id={apiResponse.validation_id} frontSide={apiResponse.instructions.front_url} backSide={apiResponse.instructions.reverse_url} />
         </div>
-      )}
-      {error && <Typography color="error">An error occurred: {error}</Typography>}
+      ) : null}
+      {error ? <Typography color="error">An error occurred: {error}</Typography> : null}
       <Link to="/application-status">
       <Button variant="contained" color="primary" style={{fontSize:'12px', margin:'15px'}}>
         View Application Status
